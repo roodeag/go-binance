@@ -229,10 +229,19 @@ func (b *binance) Ticker24(tr TickerRequest) (*Ticker24, error) {
 	return b.Service.Ticker24(tr)
 }
 
+func (b *binance) TickerPrice(symbol string) (*PriceTicker, error) {
+	return b.Service.TickerPrice(symbol)
+}
+
 // PriceTicker represents ticker data for price.
 type PriceTicker struct {
 	Symbol string
 	Price  float64
+}
+
+type SymbolPrice struct {
+	Symbol string `json:"symbol"`
+	Price  string `json:"price"`
 }
 
 // TickerAllPrices returns ticker data for symbols.

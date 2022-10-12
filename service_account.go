@@ -383,7 +383,7 @@ func (as *apiService) MyTrades(mtr MyTradesRequest) ([]*Trade, error) {
 		return nil, as.handleError(textRes)
 	}
 
-	rawTrades := []struct {
+	var rawTrades []struct {
 		ID              int64   `json:"id"`
 		Price           string  `json:"price"`
 		Qty             string  `json:"qty"`
@@ -393,7 +393,7 @@ func (as *apiService) MyTrades(mtr MyTradesRequest) ([]*Trade, error) {
 		IsBuyer         bool    `json:"isBuyer"`
 		IsMaker         bool    `json:"isMaker"`
 		IsBestMatch     bool    `json:"isBestMatch"`
-	}{}
+	}
 	if err := json.Unmarshal(textRes, &rawTrades); err != nil {
 		return nil, errors.Wrap(err, "rawTrades unmarshal failed")
 	}

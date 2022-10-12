@@ -22,6 +22,7 @@ type Service interface {
 	AggTrades(atr AggTradesRequest) ([]*AggTrade, error)
 	Klines(kr KlinesRequest) ([]*Kline, error)
 	Ticker24(tr TickerRequest) (*Ticker24, error)
+	TickerPrice(symbol string) (*PriceTicker, error)
 	TickerAllPrices() ([]*PriceTicker, error)
 	TickerAllBooks() ([]*BookTicker, error)
 

@@ -26,6 +26,7 @@ type Binance interface {
 	Klines(kr KlinesRequest) ([]*Kline, error)
 	// Ticker24 returns 24hr price change statistics.
 	Ticker24(tr TickerRequest) (*Ticker24, error)
+	TickerPrice(symbol string) (*PriceTicker, error)
 	// TickerAllPrices returns ticker data for symbols.
 	TickerAllPrices() ([]*PriceTicker, error)
 	// TickerAllBooks returns tickers for all books.

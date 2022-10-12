@@ -7,9 +7,9 @@ import (
 	"os/signal"
 	"time"
 
+	"github.com/binance-exchange/go-binance"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
-	"github.com/binance-exchange/go-binance"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 	ctx, cancelCtx := context.WithCancel(context.Background())
 	// use second return value for cancelling request
 	binanceService := binance.NewAPIService(
-		"https://www.binance.com",
+		"https://api.binance.com",
 		os.Getenv("BINANCE_APIKEY"),
 		hmacSigner,
 		logger,
